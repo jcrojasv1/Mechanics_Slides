@@ -33,5 +33,11 @@ class principal(Slide):
         self.play(
             Write(def1,shift=LEFT),
             Write(def2,shift=LEFT)
-        ) 
+        )
+        self.wait(0.1)
+        self.play(
+            Transform(def1, (def1.copy()).to_edge(LEFT)),
+            Transform(def2, (def2.copy()).to_edge(LEFT))
+        )
+        
         self.next_slide()
