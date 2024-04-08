@@ -166,8 +166,8 @@ class Slide2(Slide):
         self.play(FadeIn(texto),shift=UP)
 
 
-class Test(Slide):
-    def get_sub_indexes(tex):
+class Test(Scene):
+    def get_sub_indexes(self,tex):
         ni = VGroup()
         colors = [RED,TEAL,GREEN,BLUE,PURPLE]
         for i in range(len(tex)):
@@ -177,15 +177,10 @@ class Test(Slide):
         return ni
 
     def construct(self):
-        self.next_slide(loop=True)
-        text1 = MathTex(r"\dv{Q}{t}", r"=",r"-\int_S \textbf{J}\cdot \text{d}\textbf{A}")
-        text2 = MathTex(r"\dv{}{t}\left( \int_{V} \rho(\mathbf{r},t) \dd V \right)",r"=",r"-\int_S \textbf{J}\cdot \text{d}\textbf{A}")
-        source_ind = Test.get_sub_indexes(text1)
-        target_ind = Test.get_sub_indexes(text2)
-
-        self.add(
-            text1
-        )
-        self.play(TransformMatchingTex(text1,text2))
-
+        eqn3 = MathTex(r"\sum_{i} \frac{E_i \partial(\delta_{0}\psi_{i})}{\partial(\delta\omega^k)} \circeq \partial_{\mu}j^{\mu}_{k}")[0]
+        print(eqn3)
+        source_ind = self.get_sub_indexes(eqn3)
         
+        self.add(
+            eqn3,source_ind
+        )

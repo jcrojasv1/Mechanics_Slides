@@ -8,22 +8,26 @@ import numpy as np
 #presentaciones
 class PresentationSlide(Slide):
     def construct(self):
-        text1 = Tex(r"$\textbf{Conservación de la carga}$")
-        text2 = Tex(r"$\text{Integrantes:}$")
-        text3 = Tex(r"$\text{Juan Carlos Rojas}$")
-        text4 = Tex(r"$\text{Thomas Andrade}$")
-        text5 = Tex(r"$\text{Claudia Cuellar}$")
+        text1 = Tex(r"\textbf{Teoremas de Noether \\ y \\ Conservación local de la carga}")
+        text1.font_size = 38
+        text2 = Tex(r"\text{Integrantes:}")
+        text2.font_size = 35
+        text3 = Tex(r"\text{Juan C. Rojas V.}")
+        text3.font_size = 35
+        text4 = Tex(r"\text{Thomas A. Hernández}")
+        text4.font_size = 35
+        text5 = Tex(r"\text{Claudia C. Nieto}")
+        text5.font_size = 35
+        noether = ImageMobject("Noether.jpg").scale(0.5).to_corner(RIGHT)
 
-        text2.next_to(text1,DOWN)
-        text3.next_to(text2,DOWN)
-        text4.next_to(text3,DOWN)
-        text5.next_to(text4,DOWN)
-        self.play(Write(text1),shift=UP)
-        self.play(Write(eqn))
+        grupo_presentación = VGroup(text1,text2,text3,text4,text5).arrange(DOWN)
+        
+        grupo_presentación.to_edge(LEFT)
+
+        self.play(Write(text1),FadeIn(noether))
         self.play(Write(text2))
         self.play(Write(text3),Write(text4),Write(text5))
 
-        self.wait(2)
 
 class Slide1_1(Slide):
     def construct(self):
@@ -31,7 +35,8 @@ class Slide1_1(Slide):
         VGroup(title).arrange(DOWN)
         self.play(
             Write(title,shift=DOWN))   
-        self.next_slide()
+        
+        self.wait(2)
         
         transform_title = Tex("Notación vectorial:")
         transform_title.to_corner(UP + LEFT)
@@ -65,41 +70,19 @@ class Slide1_1(Slide):
             Transform(defa , (defa11).to_edge(LEFT))
         )
         
-        self.next_slide()
-
-        textb = Tex("Métrica de Minkowski:")
-        defb = Matrix([[1, 0,0,0], [0, -1,0,0],[0, 0,-1,0],[0, 0,0,-1]],
-            left_bracket="(",
-            right_bracket=")").add_background_rectangle()
-        defb1 = Tex(r"$\eta_{\mu\nu}  =\textit{diag}(1,-1,-1,-1)$")
-        
-        VGroup(textb,defb).arrange(DOWN)
-        self.play(
-            FadeOut(title,transform_eqn,texta,defa),
-            Write(textb,shift=LEFT),
-            Write(defb,shift=LEFT)
-        )
-
-        self.play(
-            Write(transform_eqn),
-            Write(title),
-            Write(texta),
-            Write(defa),
-            Transform(textb, (textb.copy()).to_edge(LEFT).move_to(np.array((-4,-2,0.0)))),
-            Transform(defb, (defb1).to_edge(LEFT).move_to(np.array((-4,-3,0.0))))
-        )
+  
         
         self.next_slide()
 
         self.play(
-            FadeOut(title,transform_eqn,texta,defa,textb,defb)
+            FadeOut(title,transform_eqn,texta,defa)
         )
+        
         
         textc = Tex("Elementos tensoriales:")
         defc = Tex(r"$\text{Covariante:} \quad T_{\mu}\textbf{e}_{\mu}\otimes \textbf{e}_{\nu}$")
         defc1 = Tex(r"$\text{Contravariante:} \quad T^{\mu}\textbf{e}^{\mu}\otimes \textbf{e}^{\nu}$")
-        VGroup(textc,defc,defc1).arrange(DOWN)
-        VGroup(textc,defc,defc1).to_corner(UP+LEFT)
+        VGroup(textc,defc,defc1).to_corner(UP+LEFT).arrange(DOWN)
         
         self.play(
             Write(textc,shift=LEFT),
@@ -148,7 +131,7 @@ class Slide1_2(Slide):
         myTemplate = TexTemplate()
         myTemplate.add_to_preamble(r"\usepackage{ragged2e}")
         
-        transform_text = Tex(r"Si la acción S es invariante bajo un grupo continuo de transformaciones que dependen suavemente de $\rho$ parámetros constantes independientes $\omega_k$ $(k=1,2,...,\rho)$ (grupo global de simetría), entonces", tex_template=myTemplate, tex_environment="justify")
+        transform_text = Tex(r"Si la acción $S$ es invariante bajo un grupo continuo de transformaciones que dependen suavemente de $\rho$ parámetros constantes independientes $\omega_k$ $(k=1,2,...,\rho)$ (grupo global de simetría), entonces", tex_template=myTemplate, tex_environment="justify")
         transform_eqn = MathTex(r"\sum_i E_i\delta_0\psi_i \circeq \sum_i \partial_{\mu}B_{\mu}^{i} \quad \text{implica} \quad \sum_i E_i\frac{\partial(\delta_0\psi_i)}{\partial(\delta\omega^k)} \circeq \partial_{\mu}j_{k}^{\mu}")
         transform_text.font_size = 38.0
         transform_eqn.font_size = 38.0
@@ -158,16 +141,15 @@ class Slide1_2(Slide):
             Write(transform_text),
             Write(transform_eqn)
         )
-        self.wait(5)
+        self.next_slide()
         self.play(
             FadeOut(title,transform_eqn,transform_text)
             )
-        self.next_slide()
 
         texta = Tex(r"\textbf{Teorema 2:}")
         texta.to_corner(UP + LEFT)
 
-        textb = Tex(r"Si la acción S es invariante bajo un grupo continuo de transformaciones que dependen suavemente de $\rho$ funciones arbitrarias independientes $p_k(x)$ $(k=1,2,...,\rho)$ y sus primeras derivadas (grupo local de simetría), entonces", tex_template=myTemplate, tex_environment="justify")
+        textb = Tex(r"Si la acción $S$ es invariante bajo un grupo continuo de transformaciones que dependen suavemente de $\rho$ funciones arbitrarias independientes $p_k(x)$ $(k=1,2,...,\rho)$ y sus primeras derivadas (grupo local de simetría), entonces", tex_template=myTemplate, tex_environment="justify")
         defb = MathTex(r"\sum_i E_i\delta_0\psi_i \circeq \sum_i \partial_{\mu}B_{\mu}^{i} \quad \text{implica} \quad \sum_i E_ia_{ki} \circeq \partial_{\mu}(E_ib_{ki}^{\mu})")
         textb1 = Tex(r"Donde $a_{ki},b_{ki}^{\mu}$ son funciones de $\psi_i,\partial_{\mu}\psi_i,x^{\mu}$", tex_template=myTemplate, tex_environment="justify")
         textb.font_size = 38.0
@@ -181,27 +163,25 @@ class Slide1_2(Slide):
             Write(defb,shift=LEFT),
             Write(textb1,shift=LEFT)
         )
-        self.wait(5)
+        self.next_slide()
         self.play(
             FadeOut(texta,textb,defb,textb1)
             )
         self.next_slide()
 
-        textc = Tex("Notación:")
-        VGroup(textc).arrange(DOWN)
-        VGroup(textc).to_corner(UP+LEFT)
+        textc = Tex("Notación:").to_corner(UP+LEFT)
 
         eqn1 = MathTex(r"\sum_i", r"E_i",r"\delta_0\psi_i",r"\circeq", r"\sum_i \partial_{\mu}",r"B_{\mu}^{i}")
         eqn2 = MathTex(r"\sum_i", r"E_i",r"a_{ki}", r"\circeq", r"\partial_{\mu}(E_i",r"b_{ki}^{\mu}",r")")
-        eqn3 = MathTex(r"\sum_i", r"E_i",r"\partial(\delta_0\psi_i)",r"\over",r"\partial(\delta\omega^k)" ,r"\circeq",r"\partial_{\mu}",r"j_{k}^{\mu}")
-
+        eqn3 = MathTex(r"\sum_{i} \frac{E_i \partial(\delta_{0}\psi_{i})}{\partial(\delta\omega^k)} \circeq \partial_{\mu}j^{\mu}_{k}")
         eqn1.to_edge(np.array((0.0,0.0,0.0)))
         eqn2.to_edge(np.array((0.0,2.0,0.0)))
         eqn3.to_edge(np.array((0.0,-2.0,0.0)))
 
         eqn1[1].set_color(YELLOW)
         eqn2[1].set_color(YELLOW)
-        eqn3[1].set_color(YELLOW)
+        eqn3[0][2].set_color(YELLOW)
+        eqn3[0][3].set_color(YELLOW)
 
         self.play(
             Write(textc,shift=UP),
@@ -209,7 +189,7 @@ class Slide1_2(Slide):
             Write(eqn2),
             Write(eqn3)
         )
-        self.wait(2)
+        self.next_slide()
 
         defei = MathTex(r"\text{Expresión de Lagrange:} \quad E_i :=\frac{\partial L}{\partial\psi_i}-\partial_{\mu}\left( \frac{\partial L}{\partial(\partial_{\mu}\psi_i)}\right)")
 
@@ -221,7 +201,7 @@ class Slide1_2(Slide):
             Write(defei)
         )
 
-        self.wait(1)
+        self.next_slide()
 
         self.play(
             FadeOut(defei)
@@ -229,10 +209,14 @@ class Slide1_2(Slide):
 
         eqn1[1].set_color(WHITE)
         eqn2[1].set_color(WHITE)
-        eqn3[1].set_color(WHITE)
+        eqn3[0][2].set_color(WHITE)
+        eqn3[0][3].set_color(WHITE)
 
         eqn1[2].set_color(YELLOW)
-        eqn3[2].set_color(YELLOW)
+        eqn3[0][6].set_color(YELLOW)
+        eqn3[0][7].set_color(YELLOW)
+        eqn3[0][8].set_color(YELLOW)
+        eqn3[0][9].set_color(YELLOW)
 
         self.play(
             Write(textc,shift=UP),
@@ -240,7 +224,7 @@ class Slide1_2(Slide):
             Write(eqn2),
             Write(eqn3)
         )
-        self.wait(2)
+        self.next_slide()
 
         defd0 = MathTex(r"\text{Cambio en la coordenada fija:} \quad  \delta_0\psi_i=\psi'_i(x)-\psi_i(x)")
 
@@ -252,14 +236,17 @@ class Slide1_2(Slide):
             Write(defd0)
         )
 
-        self.wait(1)
+        self.next_slide()
 
         self.play(
             FadeOut(defd0)
         )
 
         eqn1[2].set_color(WHITE)
-        eqn3[2].set_color(WHITE)
+        eqn3[0][6].set_color(WHITE)
+        eqn3[0][7].set_color(WHITE)
+        eqn3[0][8].set_color(WHITE)
+        eqn3[0][9].set_color(WHITE)
         eqn1[5].set_color(YELLOW)
 
         self.play(
@@ -268,7 +255,7 @@ class Slide1_2(Slide):
             Write(eqn2),
             Write(eqn3)
         )
-        self.wait(2)
+        self.next_slide()
 
         defdB = MathTex(r"B_i^{\mu}= \left( L- \frac{\partial L}{\partial(\partial_{\nu}\psi_i)} \partial_{\nu}\psi_i\right)\delta x^{\mu}+\frac{\partial L}{\partial(\partial_{\mu}\psi_i)}\delta \psi_i")
         textdB = Tex(r"Donde $L=L(\psi_i,\partial_{\mu}\psi_i,x^{\mu})$, $\psi_i$ son componentes del campo $\psi$, $x^{\mu}$ es la variable dependiente del campo y $\partial_{mu}\psi_i=\frac{\partial}{\partial x^{\mu}}\psi i$ derivada de cada componente del campo con respecto a $x^{\mu}$", tex_template=myTemplate, tex_environment="justify")
@@ -284,14 +271,16 @@ class Slide1_2(Slide):
             Write(textdB)
         )
 
-        self.wait(1)
+        self.next_slide()
 
         self.play(
             FadeOut(defdB,textdB)
         )
 
         eqn1[5].set_color(WHITE)
-        eqn3[7].set_color(YELLOW)
+        eqn3[0][21].set_color(YELLOW)
+        eqn3[0][22].set_color(YELLOW)
+        eqn3[0][23].set_color(YELLOW)
 
         self.play(
             Write(textc,shift=UP),
@@ -299,7 +288,7 @@ class Slide1_2(Slide):
             Write(eqn2),
             Write(eqn3)
         )
-        self.wait(2)
+        self.next_slide()
 
         defdj = MathTex(r"\text{Corrientes asociadas a $\omega_k$:} ")
         d12 = MathTex(r"j_{k}^{\mu}=\sum_i \left( L- \frac{\partial L}{\partial(\partial_{\nu}\psi_i)} \partial_{\nu}\psi_i\right)\frac{\partial(\delta x^{\mu})}{\partial (\delta \omega_k)}+\frac{\partial L}{\partial(\partial_{\mu}\psi_i)}\frac{\partial(\delta \psi_i)}{\partial(\delta \omega_k)}")
@@ -315,16 +304,18 @@ class Slide1_2(Slide):
             Write(d12)
         )
 
-        self.wait(1)
+        self.next_slide()
 
         self.play(
             FadeOut(defdj,d12)
         )
 
-        eqn3[7].set_color(WHITE)
+        eqn3[0][21].set_color(WHITE)
+        eqn3[0][22].set_color(WHITE)
+        eqn3[0][23].set_color(WHITE)
         eqn1[3].set_color(YELLOW)
         eqn2[3].set_color(YELLOW)
-        eqn3[5].set_color(YELLOW)
+        eqn3[0][18].set_color(YELLOW)
 
         self.play(
             Write(textc,shift=UP),
@@ -332,7 +323,7 @@ class Slide1_2(Slide):
             Write(eqn2),
             Write(eqn3)
         )
-        self.wait(2)
+        self.next_slide()
 
         defdc = Tex(r"$\circeq$ indica aquellas ecuaciones que se mantienen independientemente del cumplimiento de las ecuaciones de movimiento de Euler-Lagrange.", tex_template=myTemplate, tex_environment="justify")
         defdc.font_size=38.0
@@ -344,20 +335,19 @@ class Slide1_2(Slide):
             Write(defdc)
         )
 
-        self.wait(1)
+        self.next_slide()
 
         self.play(
             FadeOut(defdc,textc)
         )
 
-        self.next_slide()
 
         a = Tex("¿Grupos de simetría?")
         self.play(
             Write(a)
         )
 
-        self.wait(1)
+        self.next_slide()
 
         self.play(
             FadeOut(a)
