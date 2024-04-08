@@ -3,6 +3,8 @@ from manim_slides import Slide,ThreeDSlide
 import random
 import numpy as np
 
+#manim -pql "c:\Users\clauw\Documents\Programming\Trabajos-Manim\Manim-projects\First_part.py" PresentationSlide
+
 #presentaciones
 class PresentationSlide(Slide):
     def construct(self):
@@ -17,6 +19,7 @@ class PresentationSlide(Slide):
         text4.next_to(text3,DOWN)
         text5.next_to(text4,DOWN)
         self.play(Write(text1),shift=UP)
+        self.play(Write(eqn))
         self.play(Write(text2))
         self.play(Write(text3),Write(text4),Write(text5))
 
@@ -55,8 +58,8 @@ class Slide1_1(Slide):
         )
         self.play(
             Transform(defa, defa1),
-            Transform(defa, defa2).wait(2))
-       
+            Transform(defa, defa2))
+        self.wait(1)
         self.play(
             Transform(texta, (texta.copy()).to_edge(LEFT)),
             Transform(defa , (defa11).to_edge(LEFT))
@@ -92,17 +95,18 @@ class Slide1_1(Slide):
             FadeOut(title,transform_eqn,texta,defa,textb,defb)
         )
         
-        textc = Tex("Varianzas tensoriales:")
+        textc = Tex("Elementos tensoriales:")
         defc = Tex(r"$\text{Covariante:} \quad T_{\mu}\textbf{e}_{\mu}\otimes \textbf{e}_{\nu}$")
         defc1 = Tex(r"$\text{Contravariante:} \quad T^{\mu}\textbf{e}^{\mu}\otimes \textbf{e}^{\nu}$")
         VGroup(textc,defc,defc1).arrange(DOWN)
         VGroup(textc,defc,defc1).to_corner(UP+LEFT)
+        
         self.play(
             Write(textc,shift=LEFT),
             Write(defc,shift=LEFT),
             Write(defc1,shift=LEFT)
         )
-
+        self.next_slide()
         self.play(
             Transform(textc, (textc.copy()).to_edge(LEFT)),
             Transform(defc, (defc.copy()).to_edge(LEFT)),
@@ -331,7 +335,7 @@ class Slide1_2(Slide):
         self.wait(2)
 
         defdc = Tex(r"$\circeq$ indica aquellas ecuaciones que se mantienen independientemente del cumplimiento de las ecuaciones de movimiento de Euler-Lagrange.", tex_template=myTemplate, tex_environment="justify")
-        defdc.font_size=40.0
+        defdc.font_size=38.0
         self.play(
             FadeOut(eqn1,eqn2,eqn3)
         )
@@ -348,7 +352,6 @@ class Slide1_2(Slide):
 
         self.next_slide()
 
-        self.wait(3)
         a = Tex("¿Grupos de simetría?")
         self.play(
             Write(a)
@@ -364,50 +367,108 @@ class Slide1_3(Slide):
     def construct(self):
         title = Tex(r"\textbf{Teoría de Gauge}")
         VGroup(title).arrange(DOWN)
-        title.to_corner(UP+LEFT)
         self.play(
             Write(title,shift=DOWN))   
         self.next_slide()
-        
-        transform_title = Tex("El grupo de simetría del teorema de Noether es un grupo Gauge.")
-        
+
+        transform_title = Tex(r"\textbf{Grupos Gauge}")
+        transform_title.to_corner(UP + LEFT)
+        transform_text = Tex(r"\textbf{Invarianzas de Gauge}")
+        transform_text.to_edge(np.array((0,0,0.0)))
+
+        textf = Tex("El grupo de simetría del teorema de Noether es un grupo Gauge.")
+        textf.to_edge(np.array((0,0,0.0)))
+        textf1 = Tex("Transformaciones de coordenadas continuas")
+        textf1.next_to(textf,DOWN)
+
         texta = Tex(r"Invarianza Gauge $\rightarrow$ simetría")
-        texta.next_to(transform_title,DOWN)
-        textb = Tex("Invarianza Gauge local")
-        
-        textc = Tex("Leyes de la naturaleza invariantes a transformaciones locales.")
-        textc.next_to(textb,DOWN)
-        textd = Tex("Invarianza Gauge global")
-        
-        texte = Tex("Leyes de la naturaleza invariantes a transformaciones globales.")
-        texte.next_to(textd,DOWN)
+        texta.to_edge(np.array((0,0,0.0)))
+        texta1 = Tex("Electromagnetismo clásico")
+        texta1.next_to(texta,DOWN)
 
         self.play(
-            Write(transform_title),
-            Write(texta)
-        )
-        self.wait(1)
+            Transform(title, transform_title),
+            Write(transform_text),
+                    )
         self.play(
-            FadeOut(transform_title,texta)
+            FadeOut(transform_text)
         )
-        
         self.play(
+            Write(textf),
+            Write(textf1),
+        )
+        self.play(
+            Transform(textf,texta),
+            Transform(textf1,texta1),
+        )
+        self.wait(3)
+
+        self.play(
+            FadeOut(title,textf,textf1)
+        )
+
+        title2 = Tex(r"\textbf{¿Invariante con respecto a qué?}")
+        VGroup(title2).arrange(DOWN)
+        self.play(
+            Write(title2,shift=DOWN))   
+        self.next_slide()
+
+        transform_title2 = Tex(r"\textbf{Tipos de invarianza de Gauge}")
+        transform_title2.to_corner(UP + LEFT)
+
+        textb = Tex("Invarianza Gauge local")
+        textb.to_edge(np.array((0,0,0.0)))
+        textc = Tex("Leyes de la naturaleza invariantes a transformaciones locales.")
+        textc.next_to(textb,DOWN)
+        textc1 = Tex("Transformaciones en puntos individuales del espacio-tiempo.")
+        textc1.next_to(textc,DOWN)
+
+
+        textd = Tex("Invarianza Gauge global")
+        textd.to_edge(np.array((0,0,0.0)))
+        texte = Tex("Leyes de la naturaleza invariantes a transformaciones globales.")
+        texte.next_to(textd,DOWN)
+        texte1 = Tex("Transformaciones simultáneas en el espacio-tiempo.")
+        texte1.next_to(texte,DOWN)
+
+        self.play(
+            Transform(title2,transform_title2),
             Write(textb),
-            Write(textc)
+            Write(textc),
+            Write(textc1)
         )
-        self.wait(2)
+        self.wait(3)
         self.play(
-            FadeOut(textb,textc)
+            FadeOut(textb,textc,textc1)
         )
         
         self.play(
             Write(textd),
-            Write(texte)
+            Write(texte),
+            Write(texte1)
         )
         self.wait(2)
         self.play(
-            FadeOut(textd,texte)
+            FadeOut(textd,texte,title2,texte1)
         )
+
+        title3 = Tex(r"\textbf{Caso específico}")
+        VGroup(title3).arrange(DOWN)
+        self.play(
+            Write(title3,shift=DOWN))   
+        self.next_slide()
+
+        transform_title3 = Tex(r"\textbf{Conservación local de la carga.}")
+        
+        self.play(
+            Transform(title3,transform_title3)
+        )
+        self.wait(3)
+
+        self.play(FadeOut(title3))
+
+
+
 
 
 
