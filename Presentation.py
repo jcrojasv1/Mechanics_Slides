@@ -713,11 +713,11 @@ class slide6(Slide):
         formulae_5 = MathTex(r"\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_{0}}")
         formulae_5.scale(0.75)
         
-        formulae_6 = MathTex(r"\nabla \times \mathbf{E} = - \pdv{\mathbf{B}}{t}")
+        formulae_6 = MathTex(r"\nabla \cdot \mathbf{B} = 0")
         formulae_6.scale(0.75)
         formulae_6.move_to(DOWN*1)
         
-        formulae_7 = MathTex(r"\nabla \cdot \mathbf{B} = 0")
+        formulae_7 = MathTex(r"\nabla \times \mathbf{E} = - \pdv{\mathbf{B}}{t}")
         formulae_7.scale(0.75)
         formulae_7.move_to(DOWN*2)
 
@@ -744,11 +744,11 @@ class slide6(Slide):
 
         text_c = Text("Ley de Maxwell-Faraday")
         text_c.scale(0.5)
-        text_c.move_to(DOWN*2)
+        text_c.move_to(DOWN*3)
 
         text_d = Text("Ley de Ampère-Maxwell")
         text_d.scale(0.5)
-        text_d.move_to(DOWN*3)
+        text_d.move_to(DOWN*2)
 
         text_e = ["Ecuaciones de Maxwell", "en Forma Integral"]
         text_e = Paragraph(*text_e, alignment = "center")
@@ -954,7 +954,7 @@ class slide6(Slide):
             )
 
         # Explicación de los términos del Lagrangiano:
-        text_4 = Text("Tensor de Campo Electromagnético")
+        text_4 = Text("Contravariante Tensor de Campo Electromagnético")
         text_4.scale(0.65)
         text_4.shift(DOWN*3)
         tensorF = MathTex(r"F^{\mu\nu}", r"=", r"\begin{pmatrix} 0 & - \dfrac{E_{x}}{c} & - \dfrac{E_{y}}{c} & - \dfrac{E_{z}}{c} \\ \
@@ -963,7 +963,7 @@ class slide6(Slide):
         tensorF.scale(0.75)
         tensorF_Group = VGroup(tensorF, text_4)
 
-        text_5 = Text("Covariente del Tensor de Campo Electromagnético")
+        text_5 = Text("Covariante del Tensor de Campo Electromagnético")
         text_5.scale(0.65)
         text_5.shift(DOWN*3)
         cov_tensorF = MathTex(r"F_{\mu\nu}", r"=", r"\begin{pmatrix} 0 & \dfrac{E_{x}}{c} & \dfrac{E_{y}}{c} & \dfrac{E_{z}}{c} \\ \
@@ -1076,7 +1076,7 @@ class slide6(Slide):
         text_11.shift(UP)
         aki = MathTex(r"a_{ki} = 0")
         aki.shift(LEFT)
-        bki = MathTex(r"b_{ki}^{\nu} = \delta^{\gamma}_{\mu}")
+        bki = MathTex(r"b_{ki}^{\nu} = \delta^{\nu}_{\mu}")
         bki.shift(RIGHT)
 
         constants_group = VGroup(text_11, aki, bki, box_7)
