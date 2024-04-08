@@ -1,0 +1,13 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/3977891868_3630525482_223132457.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_2435123547_1568274127.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_2525766369_4012375958.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_1115361030_2094753596.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_2656102093_795254767.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_3149778499_257863272.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_378480979_257863272.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_740711771_257863272.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_3317106229_257863272.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_1604654537_257863272.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_1391895592_1588877253.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide5/2852726489_2472050906_3039746754.mp4'

@@ -1,0 +1,12 @@
+# This file is used internally by FFMPEG.
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/3977891868_1803533024_223132457.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_2732197487_209079111.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_1550723047_4123683193.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_3969711015_2049741855.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_1884283047_1489186441.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_4174938455_2750908755.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_3355649305_1260244232.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_1056506795_1470805814.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_1013749510_14955730.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_2044042509_2358420845.mp4'
+file 'file:C:/Users/Thomas/University/Physics Repository/Mechanics_Slices/media/videos/Presentation/1080p60/partial_movie_files/slide4/2852726489_3317130871_2932047615.mp4'
