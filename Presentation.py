@@ -834,7 +834,7 @@ class slide6(Slide):
 
         self.next_slide()
 
-        a_maxwell_1 = MathTex(r"\nabla \times", r"\left(\nabla \cdot \mathbf{B}\right)", r"=", r"\nabla \times \left(\mu_{0}\mathbf{J}", r"+", r"\mu_{0}\varepsilon_{0} \pdv{\mathbf{E}}{t}",r"\right)")
+        a_maxwell_1 = MathTex(r"\nabla \cdot", r"\left(\nabla \times \mathbf{B}\right)", r"=", r"\nabla \cdot \left(\mu_{0}\mathbf{J}", r"+", r"\mu_{0}\varepsilon_{0} \pdv{\mathbf{E}}{t}",r"\right)")
         a_maxwell_1_0 = a_maxwell_0.copy()
         a_maxwell_1.scale(0.75)
         a_maxwell_1.shift(UP)
@@ -850,7 +850,7 @@ class slide6(Slide):
         text_g = Text("Propiedad para Campos Vectoriales:")
         text_g.scale(0.5)
         text_g.move_to(UP*0.65)
-        formulae_9 = MathTex(r"\nabla \times \left(\nabla \cdot \mathbf{A}\right) = 0")
+        formulae_9 = MathTex(r"\nabla \cdot \left(\nabla \times \mathbf{A}\right) = 0")
 
         v_propertie = VGroup(text_g, formulae_9, box_4)
         v_propertie.shift(LEFT*3 + DOWN*3)
